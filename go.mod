@@ -3,6 +3,8 @@ module github.com/SkuldNorniern/Cordium
 go 1.15
 
 require (
+	cloud.google.com/go/firestore v1.3.0 // indirect
+	firebase.google.com/go v3.13.0+incompatible
 	fyne.io/fyne v1.3.3
 	github.com/alecthomas/gocyclo v0.0.0-20150208221726-aa8f8b160214 // indirect
 	github.com/client9/misspell v0.3.4 // indirect
@@ -12,5 +14,6 @@ require (
 	github.com/tsenart/deadcode v0.0.0-20160724212837-210d2dc333e9 // indirect
 	golang.org/x/crypto v0.0.0-20201016220609-9e8e0b390897 // indirect
 	golang.org/x/tools v0.0.0-20201031021630-582c62ec74d0 // indirect
+	google.golang.org/api v0.34.0
 	rsc.io/quote v1.5.2
 )

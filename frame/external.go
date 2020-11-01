@@ -41,7 +41,7 @@ func confirmCallback(response bool) {
 }
 func loadDialogGroup(win fyne.Window) *widget.Group {
 	return widget.NewGroup("Dialogs",
-		widget.NewButton("Info", func() {
+		widget.NewButton("Host Start", func() {
 			fyne.CurrentApp().SendNotification(&fyne.Notification{
 				Title:   "Started Hosting",
 				Content: "Your Hosting of your files has been begin",
