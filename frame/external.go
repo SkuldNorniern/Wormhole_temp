@@ -32,6 +32,7 @@ import (
 	"fyne.io/fyne/dialog"
 	"fyne.io/fyne/layout"
 	"fyne.io/fyne/widget"
+	"github.com/SkuldNorniern/Cordium/network"
 )
 
 func confirmCallback(response bool) {
@@ -41,6 +42,7 @@ func loadDialogGroup(win fyne.Window) *widget.Group {
 	return widget.NewGroup("Dialogs",
 		widget.NewButton("Info", func() {
 			dialog.ShowInformation("Information", "You should know this thing...", win)
+			network.Hostsmb()
 		}),
 		widget.NewButton("Notification", func() {
 			fyne.CurrentApp().SendNotification(&fyne.Notification{
