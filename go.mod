@@ -3,6 +3,7 @@ module github.com/SkuldNorniern/Cordium
 go 1.15
 
 require (
+	fyne.io/fyne v1.3.3
 	github.com/alecthomas/gocyclo v0.0.0-20150208221726-aa8f8b160214 // indirect
 	github.com/client9/misspell v0.3.4 // indirect
 	github.com/mibk/dupl v1.0.0 // indirect
