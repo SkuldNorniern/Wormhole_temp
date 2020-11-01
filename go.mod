@@ -1,4 +1,4 @@
-module github.com/SkuldNorniern/cordium
+module github.com/SkuldNorniern/Cordium
 
 go 1.15
 
