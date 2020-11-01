@@ -26,35 +26,31 @@
 package frame
 
 import (
-	"time"
+	"fmt"
 
 	"fyne.io/fyne"
 	"fyne.io/fyne/dialog"
-	"fyne.io/fyne/driver/desktop"
 	"fyne.io/fyne/layout"
 	"fyne.io/fyne/widget"
 )
 
-//Show external windows
-func Show(app fyne.App) {
-	w := app.NewWindow("Hello")
-	hello := widget.NewLabel("Hello Fyne!")
-	w.SetContent(widget.NewVBox(
-		hello,
-		widget.NewButton("Hi!", func() {
-			hello.SetText("Welcome :)")
-		}),
-	))
-	w.CenterOnScreen()
-	w.ShowAndRun()
+func confirmCallback(response bool) {
+	fmt.Println("Responded with", response)
 }
 func loadDialogGroup(win fyne.Window) *widget.Group {
 	return widget.NewGroup("Dialogs",
 		widget.NewButton("Info", func() {
 			dialog.ShowInformation("Information", "You should know this thing...", win)
+		}),
+		widget.NewButton("Notification", func() {
+			fyne.CurrentApp().SendNotification(&fyne.Notification{
+				Title:   "Started Hosting",
+				Content: "Your Hosting of your files has been begin",
+			})
 		}))
 }
-func loadWindowGroup() fyne.Widget {
+
+/*func loadWindowGroup() fyne.Widget {
 	windowGroup := widget.NewGroup("Windows",
 		widget.NewButton("New window", func() {
 			w := fyne.CurrentApp().NewWindow("Hello")
@@ -96,15 +92,14 @@ func loadWindowGroup() fyne.Widget {
 	otherGroup := widget.NewGroup("Other",
 		widget.NewButton("Notification", func() {
 			fyne.CurrentApp().SendNotification(&fyne.Notification{
-				Title:   "Fyne Demo",
-				Content: "Testing notifications...",
+				Title:   "Started Hosting",
+				Content: "Your Hosting of your files has been begin",
 			})
 		}))
 
 	return widget.NewVBox(windowGroup, otherGroup)
-}
+}*/
 func DialogScreen(win fyne.Window) fyne.CanvasObject {
 	return fyne.NewContainerWithLayout(layout.NewAdaptiveGridLayout(2),
-		widget.NewScrollContainer(loadDialogGroup(win)),
-		widget.NewScrollContainer(loadWindowGroup()))
+		widget.NewScrollContainer(loadDialogGroup(win)))
 }
