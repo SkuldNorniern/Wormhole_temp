@@ -48,7 +48,7 @@ func loadDialogGroup(win fyne.Window) *widget.Group {
 			})
 			network.Hostsmb()
 		}),
-		widget.NewButton("Custom Dialog (Login Form)", func() {
+		widget.NewButton("Login", func() {
 			username := widget.NewEntry()
 			password := widget.NewPasswordEntry()
 			content := widget.NewForm(widget.NewFormItem("Username", username),
