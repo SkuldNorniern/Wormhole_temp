@@ -27,8 +27,10 @@ package frame
 
 import (
 	"fmt"
+	"log"
 
 	"fyne.io/fyne"
+	"fyne.io/fyne/dialog"
 	"fyne.io/fyne/layout"
 	"fyne.io/fyne/widget"
 	"github.com/SkuldNorniern/Cordium/network"
@@ -45,6 +47,20 @@ func loadDialogGroup(win fyne.Window) *widget.Group {
 				Content: "Your Hosting of your files has been begin",
 			})
 			network.Hostsmb()
+		}),
+		widget.NewButton("Custom Dialog (Login Form)", func() {
+			username := widget.NewEntry()
+			password := widget.NewPasswordEntry()
+			content := widget.NewForm(widget.NewFormItem("Username", username),
+				widget.NewFormItem("Password", password))
+
+			dialog.ShowCustomConfirm("Login...", "Log In", "Cancel", content, func(b bool) {
+				if !b {
+					return
+				}
+
+				log.Println("Please Authenticate", username.Text, password.Text)
+			}, win)
 		}))
 }
 
