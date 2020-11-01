@@ -42,13 +42,11 @@ func loadDialogGroup(win fyne.Window) *widget.Group {
 	return widget.NewGroup("Dialogs",
 		widget.NewButton("Info", func() {
 			dialog.ShowInformation("Information", "You should know this thing...", win)
-			network.Hostsmb()
-		}),
-		widget.NewButton("Notification", func() {
 			fyne.CurrentApp().SendNotification(&fyne.Notification{
 				Title:   "Started Hosting",
 				Content: "Your Hosting of your files has been begin",
 			})
+			network.Hostsmb()
 		}))
 }
 
